@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Pizza Order Form</title>
+</head>
+<body style="background-color: #d3d3d3; font-family: sans-serif;">
+
+    <form style="width: 600px; border: 1px solid black; padding: 20px;">
+        <center><h2>PIZZA ORDER FORM</h2></center>
+
+        <fieldset>
+            <legend>Delivery Address</legend>
+            <table width="100%">
+                <tr>
+                    <td>Full Name: <br> <input type="text" name="fullname" placeholder="Full Name"></td>
+                    <td>Stree Address: <br> <input type="text" name="address" placeholder="Address"></td>
+                </tr>
+                <tr>
+                    <td>Phone: <br> <input type="text" name="phone" placeholder="Phone"></td>
+                    <td>Email: <br> <input type="email" name="email" placeholder="Email"></td>
+                </tr>
+                <tr>
+                    <td>Password: <br> <input type="password" name="password" placeholder="Password"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Payment Information</legend>
+            <table width="100%">
+                <tr>
+                    <td>Card Type: <br> 
+                        <select name="cardtype">
+                            <option value="Visa" selected>Visa</option>
+                            <option value="Mastercard">Mastercard</option>
+                            <option value="Discover">Discover</option>
+                        </select>
+                    </td>
+                    <td>Card Number: <br> <input type="text" name="cardnumber" placeholder="Card Number"></td>
+                </tr>
+                <tr>
+                    <td>Name on Card: <br> <input type="text" name="cardname" placeholder="Name"></td>
+                    <td></td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br>
+
+        <fieldset>
+            <legend>Customize Your Pizza</legend>
+            <table width="100%">
+                <tr>
+                    <td>Pizza size: <br>
+                        <select name="pizzasize">
+                            <option value="large" selected>large</option>
+                            <option value="medium">medium</option>
+                            <option value="small">small</option>
+                        </select>
+                    </td>
+                    <td>Quantity: <br> <input type="text" name="quantity"></td>
+                </tr>
+            </table>
+
+            <p>Spices: 
+                <input type="checkbox" name="spice" value="black_pepper"> Black pepper
+                <input type="checkbox" name="spice" value="bell_peppers"> Bell peppers
+                <input type="checkbox" name="spice" value="mayonnaise"> mayonnaise
+            </p>
+
+            <table width="100%">
+                <tr>
+                    <td>Other Requirements: <br>
+                        <textarea name="other" rows="4">Any Other Requirements</textarea>
+                    </td>
+                    <td>
+                        Meat: <br>
+                        <input type="radio" name="meat" value="fish"> Fish
+                        <input type="radio" name="meat" value="cow"> Cow
+                        <input type="radio" name="meat" value="chicken"> Chicken
+                    </td>
+                </tr>
+            </table>
+        </fieldset>
+
+        <br>
+        <input type="reset" value="Clear Order">
+        <input type="submit" value="Place Order">
+
+    </form>
+</body>
+</html>
