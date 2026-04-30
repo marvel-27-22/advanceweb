@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard</title>
+   
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --sidebar-bg: #2c3e50; --accent-orange: #e67e22; }
+        
+        
+        body { 
+            background-color: #f8f9fa; 
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            display: flex;
+            flex-direction: column;
+            min-height: 100vh;
+        }
+        
+        .main-wrapper { display: flex; flex: 1; }
+
+       
+        .sidebar { background-color: var(--sidebar-bg); min-height: 100vh; padding: 0; box-shadow: 2px 0 5px rgba(0,0,0,0.1); }
+        .logo-section { background-color: #add8e6; padding: 20px; text-align: center; }
+        .sidebar a { 
+            color: #bdc3c7; 
+            text-decoration: none; 
+            padding: 12px 20px; 
+            display: block; 
+            transition: 0.3s;
+            border-left: 4px solid transparent;
+        }
+        .sidebar a:hover, .sidebar a.active { 
+            background-color: #34495e; 
+            color: white; 
+            border-left: 4px solid var(--accent-orange); 
+        }
+
+        
+        .top-nav { 
+            background: white; 
+            border-bottom: 2px solid var(--accent-orange); 
+            padding: 10px 25px; 
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+       
+        footer {
+            background-color: white;
+            border-top: 1px solid #dee2e6;
+            padding: 15px 0;
+            margin-top: auto; /* Pushes footer to the bottom */
+            width: 100%;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="main-wrapper">
+      
+        <nav class="col-md-3 col-lg-2 sidebar">
+            <div class="logo-section">
+                <!-- Verbatim suza.jpg reference as per Lab 5 instructions -->
+                <img src="suza.jpg" alt="SUZA Logo" class="rounded-circle shadow-sm" width="70">
+            </div>
+            
+            <div class="nav-links mt-3">
+                <a href="dashboard.html" class="active"><i class="fa fa-home me-2 text-info"></i> Dashboard</a>
+                <a href="manage_users.html"><i class="fa fa-users me-2 text-warning"></i> Manage Users</a>
+                <a href="manage_instructors.html"><i class="fa fa-chalkboard-teacher me-2 text-success"></i> Manage Instructors</a>
+                <a href="manage_students.html"><i class="fa fa-user-graduate me-2 text-info"></i> Manage Students</a>
+                <a href="manage_course.html"><i class="fa fa-book me-2 text-primary"></i> Manage Courses</a>
+                <a href="manage_result.html"><i class="fa fa-file-alt me-2 text-danger"></i> Manage Results</a>
+                <a href="manage_allocations.html"><i class="fa fa-link me-2 text-info"></i> Manage Allocations</a>
+            </div>
+        </nav>
+
+        
+        <div class="col-md-9 col-lg-10 d-flex flex-column">
+            <!-- TOP BAR with Admin Icon at top right -->
+            <header class="top-nav">
+                <button class="btn btn-primary d-md-none"><i class="fa fa-bars"></i></button>
+                <div class="ms-auto dropdown">
+                    <a href="#" class="d-flex align-items-center link-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+                        <span class="me-2 fw-semibold">Admin Name</span>
+                        <img src="user.png" alt="Admin" width="32" height="32" class="rounded-circle border">
+                    </a>
+                    <ul class="dropdown-menu dropdown-menu-end shadow">
+                        <li><a class="dropdown-item" href="#"><i class="fa fa-key me-2"></i> Change Password</a></li>
+                        <li><a class="dropdown-item" href="#"><i class="fa fa-user-edit me-2"></i> Change Profile</a></li>
+                        <li><hr class="dropdown-divider"></li>
+                        <li><a class="dropdown-item text-danger" href="index.html"><i class="fa fa-sign-out-alt me-2"></i> Logout</a></li>
+                    </ul>
+                </div>
+            </header>
+
+            
+            <div class="p-4">
+                <h4 class="mb-4 fw-bold">Admin Dashboard</h4>
+                
+                <div class="row g-4">
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card shadow-sm h-100 text-center p-3 border-0">
+                            <div class="card-body">
+                                <h6 class="text-muted text-uppercase small fw-bold">Total Courses</h6>
+                                <h1 class="display-5 fw-bold text-primary my-2">0</h1>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="col-sm-6 col-lg-3">
+                        <div class="card shadow-sm h-100 text-center p-3 border-0">
+                            <div class="card-body">
+                                <h6 class="text-muted text-uppercase small fw-bold">Total Students</h6>
+                                <h1 class="display-5 fw-bold text-primary my-2">0</h1>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+          
+            <footer class="text-center text-muted small">
+                &copy; 2025 The State University of Zanzibar | Version 1.0.2
+            </footer>
+        </div>
+    </div>
+
+   
+    <script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

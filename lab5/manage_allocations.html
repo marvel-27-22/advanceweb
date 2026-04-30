@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Manage Allocations</title>
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <!-- Font Awesome -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root { --sidebar-bg: #2c3e50; --accent-orange: #e67e22; }
+        body { background-color: #f8f9fa; min-height: 100vh; display: flex; flex-direction: column; }
+        
+        /* Layout Wrappers */
+        .main-wrapper { display: flex; flex: 1; }
+        .sidebar { background-color: var(--sidebar-bg); min-height: 100vh; padding: 0; transition: all 0.3s; }
+        
+        /* Sidebar Styles */
+        .logo-section { background-color: #add8e6; padding: 20px; text-align: center; }
+        .sidebar a { color: #bdc3c7; text-decoration: none; padding: 12px 20px; display: block; border-left: 4px solid transparent; }
+        .sidebar a:hover, .sidebar a.active { background-color: #34495e; color: white; border-left-color: var(--accent-orange); }
+
+        /* Content Styles */
+        .top-nav { background: white; border-bottom: 2px solid var(--accent-orange); padding: 10px 25px; }
+        .content-area { padding: 30px; }
+        .action-bar { background: #fff; padding: 20px; border-radius: 8px; box-shadow: 0 2px 4px rgba(0,0,0,0.05); }
+        
+        footer { background: white; border-top: 1px solid #dee2e6; padding: 15px; margin-top: auto; }
+    </style>
+</head>
+<body>
+
+<div class="main-wrapper">
+    <!-- SIDEBAR -->
+    <nav class="col-md-3 col-lg-2 sidebar">
+        <div class="logo-section">
+            <img src="suza.jpg" alt="Logo" class="rounded-circle shadow-sm" width="70">
+        </div>
+        <div class="nav-links mt-3">
+            <a href="dashboard.html"><i class="fa fa-home me-2 text-info"></i> Dashboard</a>
+            <a href="manage_users.html"><i class="fa fa-users me-2 text-warning"></i> Manage Users</a>
+            <a href="#"><i class="fa fa-chalkboard-teacher me-2 text-success"></i>Manage Instructors</a>
+            <a href="manage_students.html"><i class="fa fa-user-graduate me-2 text-info"></i>Manage Students</a>
+            <a href="manage_course.html"><i class="fa fa-book me-2 text-primary"></i>Manage Courses</a>
+            <a href="manage_result.html"><i class="fa fa-file-alt me-2 text-danger"></i>Manage Results</a>
+            <a href="manage_allocations.html" class="active"><i class="fa fa-link me-2 text-info"></i>ManageAllocations</a>
+        </div>
+    </nav>
+
+    <!-- MAIN CONTENT -->
+    <div class="col-md-9 col-lg-10 d-flex flex-column">
+        <!-- TOP NAV -->
+        <header class="top-nav d-flex justify-content-between align-items-center">
+            <button class="btn btn-primary"><i class="fa fa-bars"></i></button>
+            <div class="dropdown">
+                <a href="#" class="d-flex align-items-center text-dark text-decoration-none dropdown-toggle" data-bs-toggle="dropdown">
+                    <span class="me-2 fw-bold">Admin Name</span>
+                    <i class="fa fa-user-circle fs-3 text-secondary"></i>
+                </a>
+                <ul class="dropdown-menu dropdown-menu-end shadow border-0">
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-key me-2"></i> Change Password</a></li>
+                    <li><a class="dropdown-item" href="#"><i class="fa fa-user-edit me-2"></i> Change Profile</a></li>
+                    <li><hr class="dropdown-divider"></li>
+                    <li><a class="dropdown-item text-danger" href="index.html"><i class="fa fa-sign-out-alt me-2"></i> Logout</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <!-- DASHBOARD CONTENT -->
+        <div class="content-area">
+            <h4 class="mb-4 fw-bold">Manage Allocations</h4>
+            
+            <div class="action-bar mb-4">
+                <div class="row g-3 align-items-end">
+                    <div class="col-md-3">
+                        <label class="form-label small fw-bold">Select Year</label>
+                        <select class="form-select"><option>2025</option><option>2024</option></select>
+                    </div>
+                    <div class="col-md-3">
+                        <label class="form-label small fw-bold">Select Semester</label>
+                        <select class="form-select"><option>Semester 1</option><option>Semester 2</option></select>
+                    </div>
+                    <div class="col-md-2">
+                        <button class="btn btn-primary w-100">View Allocation</button>
+                    </div>
+                    <div class="col-md-4 text-end">
+                        <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#mymodal">
+                            <i class="fa fa-plus me-1"></i> Add New Allocation
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card border-0 shadow-sm p-3">
+                <div class="d-flex justify-content-between mb-3">
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Show</span>
+                        <select class="form-select form-select-sm w-auto"><option>10</option><option>25</option></select>
+                        <span class="ms-2">entries</span>
+                    </div>
+                    <div class="d-flex align-items-center">
+                        <span class="me-2">Search:</span>
+                        <input type="search" class="form-control form-control-sm">
+                    </div>
+                </div>
+
+                <table class="table table-hover align-middle">
+                    <thead class="table-light">
+                        <tr>
+                            <th>Instructor</th><th>Course</th><th>Year</th><th>Sem</th>
+                            <th class="text-center">Actions</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr>
+                            <td>Dr. Smith</td>
+                            <td>CSC101_Intro to Programming</td>
+                            <td>2025</td>
+                            <td>1</td>
+                            <td class="text-center">
+                                <button class="btn btn-warning btn-sm">Edit</button>
+                                <button class="btn btn-danger btn-sm">Drop</button>
+                                <button class="btn btn-info btn-sm text-white">Students</button>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+
+                <nav class="d-flex justify-content-between align-items-center mt-3">
+                    <small class="text-muted">Showing 1 to 1 of 1 entries</small>
+                    <ul class="pagination pagination-sm mb-0">
+                        <li class="page-item disabled"><a class="page-link" href="#">Previous</a></li>
+                        <li class="page-item active"><a class="page-link" href="#">1</a></li>
+                        <li class="page-item"><a class="page-link" href="#">Next</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+
+        <!-- STICKY FOOTER[cite: 1] -->
+        <footer class="text-center text-muted small">
+            &copy; 2026 The State University of Zanzibar | Version 1.0.2
+        </footer>
+    </div>
+</div>
+
+<!-- MODAL[cite: 1] -->
+<div class="modal fade" id="mymodal" tabindex="-1">
+    <div class="modal-dialog">
+        <div class="modal-content border-0 shadow">
+            <div class="modal-header bg-light">
+                <h5 class="modal-title fw-bold">Add New Allocation</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+            </div>
+            <div class="modal-body p-4">
+                <form>
+                    <div class="mb-3">
+                        <label class="form-label">Instructor</label>
+                        <select class="form-select"><option>Dr. Smith</option><option>Dr. Abdullah</option></select>
+                    </div>
+                    <div class="mb-3">
+                        <label class="form-label">Course</label>
+                        <select class="form-select"><option>CSC101_Intro to Programming</option></select>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Year</label>
+                            <input type="text" class="form-control" placeholder="e.g., 2025" required>
+                        </div>
+                        <div class="col-md-6 mb-3">
+                            <label class="form-label">Semester</label>
+                            <input type="text" class="form-control" placeholder="1 or 2" required>
+                        </div>
+                    </div>
+                    <div class="text-end mt-3">
+                        <button type="button" class="btn btn-secondary me-2" data-bs-dismiss="modal">Close</button>
+                        <button type="submit" class="btn btn-primary">Save Allocation</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="js/bootstrap.bundle.min.js"></script>
+</body>
+</html>

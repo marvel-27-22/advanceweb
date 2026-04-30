@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <link rel="stylesheet" href="css/bootstrap.min.css" />
+    <title>Login Page</title>
+  </head>
+
+  <body style="background: linear-gradient(to right, #0f3d56, #0b2c3a)">
+    <div
+      class="container d-flex justify-content-center align-items-center min-vh-100"
+    >
+      <div class="row w-100 shadow-lg rounded overflow-hidden">
+        <!-- LEFT SIDE -->
+        <div
+          class="col-md-6 bg-dark text-white p-5 d-flex flex-column justify-content-center"
+        >
+          <h2 class="fw-bold">Student Management System</h2>
+          <hr class="border-light" />
+
+          <div class="mb-4">
+            <input
+              type="checkbox"
+              class="form-check-input bg-success me-2"
+              checked
+            />
+            <span>
+              For Academic Staff?
+              <a href="#" class="text-success text-decoration-none fw-bold"
+                >Login</a
+              >
+              using your employee number
+            </span>
+          </div>
+
+          <div>
+            <input
+              type="checkbox"
+              class="form-check-input bg-success me-2"
+              checked
+            />
+            <span>
+              For Students?
+              <a href="#" class="text-success text-decoration-none fw-bold"
+                >Login</a
+              >
+              using registration number
+            </span>
+          </div>
+        </div>
+
+        <!-- RIGHT SIDE -->
+        <div class="col-md-6 bg-light p-5">
+          <div class="text-center mb-4">
+            <img
+              src="suza.jpg"
+              class="rounded-circle border border-3 border-primary mb-2"
+              width="90"
+              height="90"
+            />
+            <h5 class="fw-bold">Welcome Back</h5>
+          </div>
+
+          <form>
+            <input
+              type="text"
+              class="form-control mb-3"
+              placeholder="Username"
+              required
+            />
+
+            <input
+              type="password"
+              class="form-control mb-3"
+              placeholder="Password"
+              required
+            />
+
+            <div class="d-flex justify-content-between mb-3">
+              <div>
+                <input type="checkbox" class="form-check-input me-2" />
+                <span>Remember Me</span>
+              </div>
+              <a href="#" class="text-decoration-none fw-bold">Forgot?</a>
+            </div>
+
+            <button class="btn btn-primary w-100">SIGN IN</button>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="js/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
