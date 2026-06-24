@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h3>Input Section</h3>
+    A: <input type="text" id="numA">
+    B: <input type="text" id="numB">
+    C: <input type="text" id="numC">
+    <br><br>
+
+    <button onclick="sortAscending()">Sort in Ascending Order</button>
+    <button onclick="sortDescending()">Sort in Descending Order</button>
+    <br><br>
+
+    <h3>Output Section</h3>
+    <input type="text" id="out1">
+    <input type="text" id="out2">
+    <input type="text" id="out3">
+
+    <script>
+        function sortAscending() {
+            var a = Number(document.getElementById("numA").value);
+            var b = Number(document.getElementById("numB").value);
+            var c = Number(document.getElementById("numC").value);
+
+            var list = [a, b, c];
+            
+            list.sort(function(x, y) { 
+                return x - y; 
+            });
+
+            document.getElementById("out1").value = list[0];
+            document.getElementById("out2").value = list[1];
+            document.getElementById("out3").value = list[2];
+        }
+
+        function sortDescending() {
+            var a = Number(document.getElementById("numA").value);
+            var b = Number(document.getElementById("numB").value);
+            var c = Number(document.getElementById("numC").value);
+
+            var list = [a, b, c];
+            
+            list.sort(function(x, y) { 
+                return y - x; 
+            });
+
+            document.getElementById("out1").value = list[0];
+            document.getElementById("out2").value = list[1];
+            document.getElementById("out3").value = list[2];
+        }
+    </script>
+
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            padding: 20px;
+        }
+
+        #myForm {
+            background-color: #eaeaea;
+            padding: 20px;
+            max-width: 500px;
+            border: 1px solid #ccc;
+        }
+
+        h3 {
+            font-size: 24px;
+            margin-top: 0;
+        }
+
+        label {
+            font-size: 12px;
+            color: #444;
+        }
+
+        input[type="text"], textarea {
+            width: 95%;
+            padding: 8px;
+            margin-top: 5px;
+            margin-bottom: 15px;
+            border: 1px solid #999;
+            border-radius: 4px;
+        }
+
+        textarea {
+            height: 60px;
+            resize: none;
+        }
+
+        button[type="submit"] {
+            width: 100%;
+            background-color: black;
+            color: white;
+            padding: 12px;
+            font-size: 16px;
+            font-weight: bold;
+            border: none;
+            border-radius: 12px;
+            cursor: pointer;
+        }
+
+        #errorBox {
+            max-width: 500px;
+        }
+    </style>
+</head>
+<body>
+
+    <form id="myForm">
+        <h3>Send Message</h3>
+        
+        <label>Name:</label><br>
+        <input type="text" id="userName" placeholder="Laurence Svekis"><br>
+        
+        <label>Email:</label><br>
+        <input type="text" id="userEmail" placeholder="gappscourses+100@gmail.com"><br>
+        
+        <label>Message:</label><br>
+        <textarea id="userMsg" placeholder="Hello World"></textarea><br>
+        
+        <button type="submit">Send Message</button>
+    </form>
+
+    <div id="errorBox"></div>
+
+    <script>
+        var form = document.getElementById("myForm");
+        form.addEventListener("submit", submitter);
+
+        function submitter(e) {
+            e.preventDefault();
+
+            var nameInput = document.getElementById("userName");
+            var emailInput = document.getElementById("userEmail");
+            var msgInput = document.getElementById("userMsg");
+            var errorBox = document.getElementById("errorBox");
+
+            var nameValue = nameInput.value;
+            var emailValue = emailInput.value;
+            var msgValue = msgInput.value;
+
+            var errorMessage = "";
+
+            if (nameValue == "") {
+                errorMessage = errorMessage + "Name is required. ";
+                nameInput.style.borderColor = "red";
+            }
+            if (emailValue == "") {
+                errorMessage = errorMessage + "Email is required. ";
+                emailInput.style.borderColor = "red";
+            }
+            if (msgValue == "") {
+                errorMessage = errorMessage + "Message is required. ";
+                msgInput.style.borderColor = "red";
+            }
+
+            if (errorMessage != "") {
+                var newEl = document.createElement("p");
+                newEl.innerText = errorMessage;
+                newEl.style.color = "red";
+                errorBox.appendChild(newEl);
+
+                setTimeout(function() {
+                    newEl.remove();
+                    nameInput.style.borderColor = "";
+                    emailInput.style.borderColor = "";
+                    msgInput.style.borderColor = "";
+                }, 3000);
+            } else {
+                var formData = {
+                    name: nameValue,
+                    email: emailValue,
+                    message: msgValue
+                };
+                console.log(formData);
+            }
+        }
+    </script>
+
+</body>
+</html>

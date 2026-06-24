@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+    <h2>Circle Calculator Results</h2>
+    <p id="areaResult"></p>
+    <p id="perimeterResult"></p>
+
+    <script>
+        function Circle(radius) {
+            this.radius = radius;
+
+            this.getArea = function() {
+                return Math.PI * this.radius * this.radius;
+            };
+
+            this.getPerimeter = function() {
+                return 2 * Math.PI * this.radius;
+            };
+        }
+
+        var circle1 = new Circle(11);
+        var circle2 = new Circle(4.44);
+        document.getElementById("areaResult").innerText = "Area: " + circle1.getArea();
+        document.getElementById("perimeterResult").innerText = "Perimeter: " + circle2.getPerimeter();
+    </script>
+
+</body>
+</html>
