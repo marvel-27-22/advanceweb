@@ -1,0 +1,29 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Country</title>
+  </head>
+  <body>
+    <script>
+      function describeCountry(country, population, capitalCity) {
+        var message =
+          country +
+          " has " +
+          population +
+          " million people and its capital city is " +
+          capitalCity;
+        return message;
+      }
+
+      var country1 = describeCountry("Finland", 6, "Helsinki");
+      var country2 = describeCountry("Japan", 125, "Tokyo");
+      var country3 = describeCountry("Brazil", 214, "Brasilia");
+
+      console.log(country1);
+      console.log(country2);
+      console.log(country3);
+    </script>
+  </body>
+</html>

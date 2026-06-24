@@ -1,0 +1,59 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <body>
+    <script>
+      var myCountry = {
+        country: "Finland",
+        capital: "Helsinki",
+        language: "finnish",
+        population: 6,
+        neighbours: ["Sweden", "Norway", "Russia"],
+
+        describe: function () {
+          var msg =
+            this.country +
+            " has " +
+            this.population +
+            " million " +
+            this.language +
+            "-speaking people, " +
+            this.neighbours.length +
+            " neighbouring countries and a capital called " +
+            this.capital +
+            ".";
+          console.log(msg);
+        },
+
+        checkIsland: function () {
+          this.isIsland = this.neighbours.length == 0 ? true : false;
+        },
+      };
+
+      var message =
+        myCountry.country +
+        " has " +
+        myCountry.population +
+        " million " +
+        myCountry.language +
+        "-speaking people, " +
+        myCountry.neighbours.length +
+        " neighbouring countries and a capital called " +
+        myCountry.capital +
+        ".";
+      console.log(message);
+
+      myCountry.population = myCountry.population + 2;
+
+      myCountry["population"] = myCountry["population"] - 2;
+
+      myCountry.describe();
+
+      myCountry.checkIsland();
+    </script>
+  </body>
+</html>

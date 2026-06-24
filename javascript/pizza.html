@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pizza</title>
+</head>
+<body>
+    <!DOCTYPE html>
+<html>
+<head>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #dcdcdc;
+            padding: 20px;
+        }
+        .form-container {
+            background-color: #e0e0e0;
+            border: 1px solid #999;
+            padding: 15px;
+            width: 700px;
+            margin: 0 auto;
+        }
+        .title {
+            text-align: center;
+            font-weight: bold;
+            border-bottom: 1px solid #999;
+            margin-bottom: 15px;
+            padding-bottom: 5px;
+        }
+        fieldset {
+            border: 1px solid #999;
+            margin-bottom: 15px;
+            padding: 10px;
+        }
+        legend {
+            font-weight: bold;
+        }
+        .row {
+            margin-bottom: 10px;
+        }
+        label {
+            display: inline-block;
+            width: 100px;
+        }
+        input[type="text"], input[type="password"], select {
+            width: 180px;
+            padding: 3px;
+        }
+        textarea {
+            width: 200px;
+            height: 50px;
+        }
+        .inline-field {
+            display: inline-block;
+            margin-right: 20px;
+        }
+        .buttons {
+            text-align: left;
+            padding-left: 20px;
+        }
+        button {
+            padding: 5px 15px;
+            margin-right: 10px;
+        }
+    </style>
+</head>
+<body>
+
+<div class="form-container">
+    <div class="title">PIZZA ORDER FORM</div>
+    
+    <form id="pizzaForm" onsubmit="return validateForm()">
+        
+        <fieldset>
+            <legend>Delivery Address</legend>
+            <div class="row">
+                <div class="inline-field">
+                    <label>Full Name:</label>
+                    <input type="text" id="fullName" placeholder="Full Name">
+                </div>
+                <div class="inline-field">
+                    <label>Stree Address:</label>
+                    <input type="text" id="address" placeholder="Address">
+                </div>
+            </div>
+            <div class="row">
+                <div class="inline-field">
+                    <label>Phone:</label>
+                    <input type="text" id="phone" placeholder="Phone">
+                </div>
+                <div class="inline-field">
+                    <label>Email:</label>
+                    <input type="text" id="email" placeholder="Email">
+                </div>
+            </div>
+            <div class="row">
+                <label>Password:</label>
+                <input type="password" id="password" placeholder="Password">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Payment Information</legend>
+            <div class="row">
+                <div class="inline-field">
+                    <label>Card Type:</label>
+                    <select id="cardType">
+                        <option value="">Select Card</option>
+                        <option value="Visa">Visa</option>
+                        <option value="MasterCard">MasterCard</option>
+                    </select>
+                </div>
+                <div class="inline-field">
+                    <label>Card Number:</label>
+                    <input type="text" id="cardNumber" placeholder="Card Number">
+                </div>
+            </div>
+            <div class="row">
+                <label>Name on Card:</label>
+                <input type="text" id="cardName" placeholder="Name">
+            </div>
+        </fieldset>
+
+        <fieldset>
+            <legend>Customize Your Pizza</legend>
+            <div class="row">
+                <div class="inline-field">
+                    <label>Pizza size :</label>
+                    <select id="pizzaSize">
+                        <option value="">Select Size</option>
+                        <option value="small">small</option>
+                        <option value="medium">medium</option>
+                        <option value="large">large</option>
+                    </select>
+                </div>
+                <div class="inline-field">
+                    <label>Quantity:</label>
+                    <input type="text" id="quantity">
+                </div>
+            </div>
+            
+            <div class="row">
+                <label>Spices :</label>
+                <input type="checkbox" name="spices" value="Black pepper"> Black pepper
+                <input type="checkbox" name="spices" value="Bell peppers"> Bell peppers
+                <input type="checkbox" name="spices" value="mayonnaise"> mayonnaise
+            </div>
+
+            <div class="row">
+                <div class="inline-field" style="vertical-align: top;">
+                    <label>Other Requirements:</label>
+                    <textarea id="otherReq" placeholder="Any Other Requirements"></textarea>
+                </div>
+                <div class="inline-field">
+                    <input type="radio" name="meat" value="Meat"> Meat
+                    <input type="radio" name="meat" value="Fish"> Fish
+                    <input type="radio" name="meat" value="Cow"> Cow
+                    <input type="radio" name="meat" value="Chicken"> Chicken
+                </div>
+            </div>
+        </fieldset>
+
+        <div class="buttons">
+            <button type="reset">Clear Order</button>
+            <button type="submit">Place Order</button>
+        </div>
+
+    </form>
+</div>
+
+<script>
+function validateForm() {
+    var fullName = document.getElementById("fullName").value;
+    var address = document.getElementById("address").value;
+    var phone = document.getElementById("phone").value;
+    var email = document.getElementById("email").value;
+    var password = document.getElementById("password").value;
+    var cardType = document.getElementById("cardType").value;
+    var cardNumber = document.getElementById("cardNumber").value;
+    var cardName = document.getElementById("cardName").value;
+    var pizzaSize = document.getElementById("pizzaSize").value;
+    var quantity = document.getElementById("quantity").value;
+
+    if (fullName == "") {
+        alert("Please provide full name");
+        return false;
+    }
+
+    if (address == "") {
+        alert("Please provide street address");
+        return false;
+    }
+
+    if (phone.length != 10) {
+        alert("Please provide a valid phone number (exactly ten digits phone number)");
+        return false;
+    }
+
+    if (email == "") {
+        alert("Please provide valid email address");
+        return false;
+    }
+
+    if (password.length < 5 || password.length > 15) {
+        alert("Please provide password of at least 5 characters and not more than 15 characters");
+        return false;
+    }
+
+    if (cardType == "") {
+        alert("Please select one of the listed card types");
+        return false;
+    }
+
+    if (cardNumber == "") {
+        alert("Please provide card number");
+        return false;
+    }
+
+    if (cardName == "") {
+        alert("Please provide card name");
+        return false;
+    }
+
+    var spiceCheckboxes = document.getElementsByName("spices");
+    var spiceChecked = false;
+    var i = 0;
+    while (i < spiceCheckboxes.length) {
+        if (spiceCheckboxes[i].checked) {
+            spiceChecked = true;
+        }
+        i = i + 1;
+    }
+    if (spiceChecked == false) {
+        alert("Please check at least one spice");
+        return false;
+    }
+
+    if (pizzaSize == "") {
+        alert("Please select one of the pizza size");
+        return false;
+    }
+
+    if (quantity == "") {
+        alert("Please provide the quantity of pizza");
+        return false;
+    }
+
+    var meatRadios = document.getElementsByName("meat");
+    var meatSelected = false;
+    var j = 0;
+    while (j < meatRadios.length) {
+        if (meatRadios[j].checked) {
+            meatSelected = true;
+        }
+        j = j + 1;
+    }
+    if (meatSelected == false) {
+        alert("Please select one of the radio buttons of meat");
+        return false;
+    }
+
+    return true;
+}
+</script>
+
+</body>
+</html>
+</body>
+</html>
